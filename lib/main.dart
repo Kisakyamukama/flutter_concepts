@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: TextScalePage(),
     );
   }
 }
@@ -63,6 +63,23 @@ class _HomeScreenState extends State<HomeScreen> {
           width: SizeConfig.blockSizeHorizontal * 50,
           color: Colors.orange,
         ),
+      ),
+    );
+  }
+}
+
+class TextScalePage extends StatefulWidget {
+  @override
+  _TextScalePageState createState() => _TextScalePageState();
+}
+
+class _TextScalePageState extends State<TextScalePage> {
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    return Scaffold(
+      body: Center(
+        child: Text('Scaling text', style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 10),),
       ),
     );
   }
